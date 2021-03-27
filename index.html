@@ -10,7 +10,7 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Hello, world!</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body class="container-fluid p-0 m-0">
@@ -24,9 +24,9 @@
             <div class="col-3 px-2 bg-light pt-2">
                 <h5>Search for a City: </h5>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username"
-                        aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary bg-primary" type="button" id="button-addon2"><i
+                    <input type="text" class="form-control searchInput" placeholder="Search"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary bg-primary searchBtn" type="button" id="button-addon2"><i
                             class="fa fa-search text-white"></i></button>
                 </div>
                 <ul class="list-group">
@@ -42,16 +42,16 @@
                     <span class="border border-secondary rounded">
                         <h3 class="">Atlanta (8/15/2021)</h3>
                         <ul class="p-2" style="list-style-type: none;">
-                            <li class="p-1">
+                            <li class="p-1" id="temperature">
                                 Temperature:
                             </li>
-                            <li class="p-1">
+                            <li class="p-1" id="humidity">
                                 Humidity:
                             </li>
-                            <li class="p-1">
+                            <li class="p-1" id="wind-speed">
                                 Wind Speed:
                             </li>
-                            <li class="p-1">
+                            <li class="p-1" id="uv-index">
                                 UV index: <span
                                     class="bg-danger border border-danger rounded p-1 text-white">9.45</span>
                             </li>
@@ -66,9 +66,9 @@
                                 <div class="card-body text-white">
                                     <h5 class="card-title">8/16/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
-                                        <li>image of weather</li>
-                                        <li>Temp: </li>
-                                        <li>Humidity: </li>
+                                        <li id="day1-img">image of weather</li>
+                                        <li id="day1-temp">Temp: </li>
+                                        <li id="day1-humid">Humidity: </li>
                                     </ul>
                                 </div>
                             </div>
@@ -78,9 +78,9 @@
                                 <div class="card-body text-white">
                                     <h5 class="card-title">8/16/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
-                                        <li>image of weather</li>
-                                        <li>Temp: </li>
-                                        <li>Humidity: </li>
+                                        <li id="day2-img">image of weather</li>
+                                        <li id="day2-temp">Temp: </li>
+                                        <li id="day2-humid">Humidity: </li>
                                     </ul>
                                 </div>
                             </div>
@@ -90,9 +90,9 @@
                                 <div class="card-body text-white">
                                     <h5 class="card-title">8/16/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
-                                        <li>image of weather</li>
-                                        <li>Temp: </li>
-                                        <li>Humidity: </li>
+                                        <li id="day3-img">image of weather</li>
+                                        <li id="day3-temp">Temp: </li>
+                                        <li id="day3-humid">Humidity: </li>
                                     </ul>
                                 </div>
                             </div>
@@ -102,9 +102,9 @@
                                 <div class="card-body text-white">
                                     <h5 class="card-title">8/16/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
-                                        <li>image of weather</li>
-                                        <li>Temp: </li>
-                                        <li>Humidity: </li>
+                                        <li id="day4-img">image of weather</li>
+                                        <li id="day4-temp">Temp: </li>
+                                        <li id="day4-humid">Humidity: </li>
                                     </ul>
                                 </div>
                             </div>
@@ -114,9 +114,9 @@
                                 <div class="card-body text-white">
                                     <h5 class="card-title">8/16/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
-                                        <li>image of weather</li>
-                                        <li>Temp: </li>
-                                        <li>Humidity: </li>
+                                        <li id="day5-img">image of weather</li>
+                                        <li id="day5-temp">Temp: </li>
+                                        <li id="day5-humid">Humidity: </li>
                                     </ul>
                                 </div>
                             </div>
@@ -129,41 +129,11 @@
     </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 
