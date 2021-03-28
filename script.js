@@ -39,13 +39,14 @@ var querySubmit = function (event) {
 }
 
 var getWeather = function (query) {
-    var apiUrl = "https:api.openweathermap.org/data/2.5/forecast?q=" + query + "&units=imperial&appid=eb5223f28d4380631ba895c1f6de4c48";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&units=imperial&appid=eb5223f28d4380631ba895c1f6de4c48";
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             console.log(response);
             response.json().then(function (data) {
                 console.log(data);
+                renderWeather(data);
             });
         } else {
             alert('Error: ' + response.statusText);
@@ -55,6 +56,20 @@ var getWeather = function (query) {
             alert('Unable to connect to OpenweatherAPI')
         })
 };
+
+function renderWeather(weather) {
+    console.log(weather)
+    cityName.append(`<span>${weather.city.name}</span>`);
+    console.log(test)
+    // var city = cityName.createElement('span');
+    // console.log(city)
+    // city.textContent = weather.city.name;
+    // cityName.append(city);
+}
+
+
+
+
 userForm.on('submit', querySubmit);
 
 
