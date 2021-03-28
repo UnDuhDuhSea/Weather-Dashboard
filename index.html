@@ -23,12 +23,14 @@
         <div class="row">
             <div class="col-3 px-2 bg-light pt-2">
                 <h5>Search for a City: </h5>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control searchInput" placeholder="Search"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary bg-primary searchBtn" type="button" id="button-addon2"><i
-                            class="fa fa-search text-white"></i></button>
-                </div>
+                <form id="user-form">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control searchInput" placeholder="Search"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary bg-primary searchBtn" type="submit"
+                            id="button-addon2"><i class="fa fa-search text-white"></i></button>
+                    </div>
+                </form>
                 <ul class="list-group">
                     <li class="list-group-item">Austin</li>
                     <li class="list-group-item">San Diego</li>
@@ -40,10 +42,10 @@
             <div class="col-8 m-3 px-4">
                 <div class="row row1">
                     <span class="border border-secondary rounded">
-                        <h3 class="">Atlanta (8/15/2021)</h3>
+                        <h3 id="city-name">London 3/27/21</h3>
                         <ul class="p-2" style="list-style-type: none;">
                             <li class="p-1" id="temperature">
-                                Temperature:
+
                             </li>
                             <li class="p-1" id="humidity">
                                 Humidity:
@@ -64,7 +66,7 @@
                         <div class="col mb-4">
                             <div class="card bg-primary">
                                 <div class="card-body text-white">
-                                    <h5 class="card-title">8/16/2021</h5>
+                                    <h5 class="card-title">3/28/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
                                         <li id="day1-img">image of weather</li>
                                         <li id="day1-temp">Temp: </li>
@@ -76,7 +78,7 @@
                         <div class="col mb-4">
                             <div class="card bg-primary">
                                 <div class="card-body text-white">
-                                    <h5 class="card-title">8/16/2021</h5>
+                                    <h5 class="card-title">3/29/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
                                         <li id="day2-img">image of weather</li>
                                         <li id="day2-temp">Temp: </li>
@@ -88,7 +90,7 @@
                         <div class="col mb-4">
                             <div class="card bg-primary">
                                 <div class="card-body text-white">
-                                    <h5 class="card-title">8/16/2021</h5>
+                                    <h5 class="card-title">3/31/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
                                         <li id="day3-img">image of weather</li>
                                         <li id="day3-temp">Temp: </li>
@@ -100,7 +102,7 @@
                         <div class="col mb-4">
                             <div class="card bg-primary">
                                 <div class="card-body text-white">
-                                    <h5 class="card-title">8/16/2021</h5>
+                                    <h5 class="card-title">4/1/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
                                         <li id="day4-img">image of weather</li>
                                         <li id="day4-temp">Temp: </li>
@@ -112,7 +114,7 @@
                         <div class="col mb-4">
                             <div class="card bg-primary">
                                 <div class="card-body text-white">
-                                    <h5 class="card-title">8/16/2021</h5>
+                                    <h5 class="card-title">4/2/2021</h5>
                                     <ul class="card-text ps-0" style="list-style-type: none;">
                                         <li id="day5-img">image of weather</li>
                                         <li id="day5-temp">Temp: </li>
