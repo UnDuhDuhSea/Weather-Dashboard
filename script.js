@@ -37,6 +37,7 @@ var querySubmit = function (event) {
 
     if (searchCity) {
         getWeather(searchCity);
+        getTodayWeather(searchCity);
 
         inputValue.value = '';
     } else {
@@ -94,17 +95,44 @@ function renderWeather(weather) {
 }
 userForm.on('submit', querySubmit);
 
+var getTodayWeather = function (query) {
+    var apiUrlToday = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=imperial&appid=eb5223f28d4380631ba895c1f6de4c48";
+
+    fetch(apiUrlToday).then(function (response) {
+        if (response.ok) {
+            console.log(response);
+            response.json().then(function (data) {
+                console.log(data);
+                renderTodayWeather(data);
+            });
+        } else {
+            alert('Error: ' + response.statusText);
+        }
+    })
+        .catch(function (error) {
+            alert('Unable to connect to OpenweatherAPI')
+        })
+};
+
+function renderTodayWeather(weather) {
+    console.log(weather);
+    cityName.append(`<span>${weather.name}</span>`);
+    temp.append(`<span>${weather.main.temp}</span>`);
+    humidity.append(`<span>${weather.main.humidity}</span>`);
+    windSpeed.append(`<span>${weather.wind.speed}</span>`);
+    // find UV INDEX - this might require a separate pull from API
+    uvIndex.append(`<span>${weather.main.humidity}</span>`);
+}
 
 
 
 
 
-// information for next call from API
-// cityName.append(`<span>${weather.city.name}</span>`);
-// temp.append(`<span>${weather.list[0].main.temp}</span>`);
-// humidity.append(`<span>${weather.list[0].main.humidity}</span>`);
-// windSpeed.append(`<span>${weather.list[0].wind.speed}</span>`);
-// uvIndex.append(`<span>${weather.list[0].wind.speed}</span>`);
+
+
+
+
+
 
 
 
