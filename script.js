@@ -1,3 +1,4 @@
+var pastCities = $('#past-cities')
 var userForm = $('#user-form')
 var cityName = $("#city-name");
 var weatherBtn = $('#button-addon2');
@@ -28,25 +29,49 @@ var day5Temp = $("#day5-temp")
 var day5Humid = $("#day5-humid")
 
 // declare empty array for local storage
-var citiesSearched = [];
+var citiesSearched = ['Portland'];
+
+// #################### Local Storage ##########################
+function renderCities() {
+    // - clear out all li items in ul before rendering buttons
+    citiesSearched.innerHTML = "";
+    for (var i = 0; i < citiesSearched.length; i++) {
+        var city = citiesSearched[i];
+
+        var button = document.createElement("li");
+        button.textContent = city;
+        button.addClass('list-group-item')
+        button.setAttribute("data-index", i);
+
+        // var button = document.createElement("button");
+        // button.textContent = "Complete ✔️";
+        pastCities.append(button);
+    }
+}
+renderCities();
+// - Everytime button is clicked, Save search value into an array citiesSearched = [];
+// - Stringify() array and save it in local storage
+// - Array pulled out of local storage parse()
+// - clear all buttons and their contents (create separate function to run)
+// - create buttons in HTML for each item in array
+//      - If button is clicked run function for getWeather(); and getCurrentWeather();
+
 // get search string
 var querySubmit = function (event) {
     event.preventDefault();
-
+    // function for clearing everything on the webpage. Possibly use something like .innerHTML = "";
     var searchCity = inputValue.val().trim();
 
     if (searchCity) {
         getWeather(searchCity);
         getTodayWeather(searchCity);
-
-        inputValue.value = '';
     } else {
         alert('Please enter a valid city.')
     }
 }
 
 var getWeather = function (query) {
-    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&units=imperial&appid=eb5223f28d4380631ba895c1f6de4c48";
+    var apiUrl = "HTTPS://api.openweathermap.org/data/2.5/forecast?q=" + query + "&units=imperial&appid=eb5223f28d4380631ba895c1f6de4c48";
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
@@ -96,7 +121,7 @@ function renderWeather(weather) {
 userForm.on('submit', querySubmit);
 
 var getTodayWeather = function (query) {
-    var apiUrlToday = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=imperial&appid=eb5223f28d4380631ba895c1f6de4c48";
+    var apiUrlToday = "HTTPS://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=imperial&appid=eb5223f28d4380631ba895c1f6de4c48";
 
     fetch(apiUrlToday).then(function (response) {
         if (response.ok) {
@@ -120,9 +145,10 @@ function renderTodayWeather(weather) {
     temp.append(`<span>${weather.main.temp}</span>`);
     humidity.append(`<span>${weather.main.humidity}</span>`);
     windSpeed.append(`<span>${weather.wind.speed}</span>`);
-    // find UV INDEX - this might require a separate pull from API
+    // find UV INDEX - this might require a separate pull from API  ---------------------------------------------
     uvIndex.append(`<span>${weather.main.humidity}</span>`);
 }
+
 
 
 
