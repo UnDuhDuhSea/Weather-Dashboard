@@ -1,4 +1,4 @@
-var weatherIcon = $('weather-icon');
+var weatherIcon = $('#weather-icon');
 var searchInput = $('#search-input');
 var pastCities = $('#past-cities');
 var userForm = $('#user-form');
@@ -115,39 +115,65 @@ var getWeather = function (query) {
         })
 };
 
-function createIcon(weather) {
+function createIcon(weather, listNum) {
     var iconUrl = `https://openweathermap.org/img/wn/${weather.list[3].weather[0].icon}.png`;
+    console.log(iconUrl);
     var icon = document.createElement("img");
     icon.setAttribute("src", iconUrl);
-    cityWeather.append(icon);
+    day1IMG.html(icon);
+
+    var iconUrl = `https://openweathermap.org/img/wn/${weather.list[11].weather[0].icon}.png`;
+    console.log(iconUrl);
+    var icon = document.createElement("img");
+    icon.setAttribute("src", iconUrl);
+    day2IMG.html(icon);
+
+    var iconUrl = `https://openweathermap.org/img/wn/${weather.list[19].weather[0].icon}.png`;
+    console.log(iconUrl);
+    var icon = document.createElement("img");
+    icon.setAttribute("src", iconUrl);
+    day3IMG.html(icon);
+
+    var iconUrl = `https://openweathermap.org/img/wn/${weather.list[27].weather[0].icon}.png`;
+    console.log(iconUrl);
+    var icon = document.createElement("img");
+    icon.setAttribute("src", iconUrl);
+    day4IMG.html(icon);
+
+    var iconUrl = `https://openweathermap.org/img/wn/${weather.list[35].weather[0].icon}.png`;
+    console.log(iconUrl);
+    var icon = document.createElement("img");
+    icon.setAttribute("src", iconUrl);
+    day5IMG.html(icon);
 }
 
 function renderWeather(weather) {
     console.log(weather)
+    createIcon(weather);
     //Render icons
     // Day 1 Weather
     day1Date.html(`${weather.list[3].dt_txt.slice(0, 10)}`);
-    day1IMG.html(`${weather.list[3].weather[0].icon}`);
+    // day1IMG.html(`${weather.list[3].weather[0].icon}`);
     day1Temp.html(`Temp: ${weather.list[3].main.temp}`);
     day1Humid.html(`Humidity: ${weather.list[3].main.humidity}`);
     // Day 2 Weather
     day2Date.html(`${weather.list[11].dt_txt.slice(0, 10)}`);
-    day2IMG.html(`${weather.list[11].weather[0].icon}`);
+    // day2IMG.html(`${weather.list[11].weather[0].icon}`);
     day2Temp.html(`Temp: ${weather.list[11].main.temp}`);
     day2Humid.html(`Humidity: ${weather.list[11].main.humidity}`);
     // Day 3 Weather
     day3Date.html(`${weather.list[19].dt_txt.slice(0, 10)}`);
-    day3IMG.html(`${weather.list[19].weather[0].icon}`);
+    // day3IMG.html(`${weather.list[19].weather[0].icon}`);
     day3Temp.html(`Temp: ${weather.list[19].main.temp}`);
     day3Humid.html(`Humidity: ${weather.list[19].main.humidity}`);
     // Day 4 Weather
     day4Date.html(`${weather.list[27].dt_txt.slice(0, 10)}`);
-    day4IMG.html(`${weather.list[27].weather[0].icon}`);
+    // day4IMG.html(`${weather.list[27].weather[0].icon}`);
     day4Temp.html(`Temp: ${weather.list[27].main.temp}`);
     day4Humid.html(`Humidity: ${weather.list[27].main.humidity}`);
     // Day 5 Weather
     day5Date.html(`${weather.list[35].dt_txt.slice(0, 10)}`);
-    day5IMG.html(`${weather.list[35].weather[0].icon}`);
+    // day5IMG.html(`${weather.list[35].weather[0].icon}`);
     day5Temp.html(`Temp: ${weather.list[35].main.temp}`);
     day5Humid.html(`Humidity: ${weather.list[35].main.humidity}`);
 }
@@ -198,13 +224,17 @@ function renderUvi(data) {
 function renderTodayWeather(weather) {
     console.log(weather);
     cityName.html(`${weather.name}`);
-    temp.html(`Temperature:: ${weather.main.temp}`);
+    temp.html(`Temperature: ${weather.main.temp}`);
     humidity.html(`Humidity: ${weather.main.humidity}`);
     windSpeed.html(`Wind Speed: ${weather.wind.speed}`);
-    weatherIcon.html(`Testing: ${weather.weather[0].icon}`);
-    console.log(weather.weather[0].icon);
-    // find UV INDEX - this might require a separate pull from API  ---------------------------------------------
-
+    // weatherIcon.html(`Testing: ${weather.weather[0].icon}`);
+    var iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
+    console.log(iconUrl);
+    var icon = document.createElement("img");
+    icon.setAttribute("src", iconUrl);
+    weatherIcon.html(icon);
+    $('weather-icon').html("testing")
+    console.log(weatherIcon)
 }
 
 

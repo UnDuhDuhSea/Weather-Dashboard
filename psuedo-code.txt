@@ -1,5 +1,0 @@
-Step 1:
-    - Create HTML file and CSS with Bootstrap
-    - Review Examples 
-    - Research API to idenfiy how to pull data
-
